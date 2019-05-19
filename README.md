@@ -20,5 +20,7 @@ Since the data belongs to different units, after some attempts, the best practic
   
   3. Centralized resources management: how do you handle the data ingestion? The best solution is some spark procedures and mostly Hive, so you need HQL code to deduplicate, clean and order the data which reach the lake. Well, the HQL code can be changed in real time without to change the DAG code. Resources are versioned.
   
+  4. DAG dependency management. ACF is able to start DAG as soon as all the data they need is available. AIRFLOW by itself allows a DAG to trigger another DAG, this is not so explicit and may lead to confusion. ACF makes these dependencies explicit and can be changed with no DAG code change.
+  
 
 AP. 19.5.2019
